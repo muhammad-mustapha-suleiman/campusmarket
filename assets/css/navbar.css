@@ -1,0 +1,81 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&display=swap");
+
+:root{
+    --green: #16a34a;
+    --green-dark:#15803D;
+    --border:#eef1ee;
+}
+
+@media (prefers-reduced-motion: reduce){
+    *{
+        animation-duration:.001ms !important;
+        transition-duration:.001ms !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav {
+        display: flex;
+        flex-direction: row;
+        flex-wrap:wrap;
+        gap: 10px;
+        margin-top: 10px;
+    }
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 18px;
+    background: rgba(255,255,255,.9);
+    -webkit-backdrop-filter:saturate(180%) blur(10px);
+    backdrop-filter:saturate(180%) blur(10px);
+    border-bottom: 1px solid var(--border);
+    gap: 15px;
+    flex-wrap: wrap;
+    position: sticky;
+    top: 0;
+    z-index: 700;
+    box-shadow:0 1px 0 rgba(17,24,39,.03);
+}
+
+.logo a {
+    display:inline-flex;
+    align-items:center;
+    gap:4px;
+    text-decoration: none;
+    font-family:"Space Grotesk","Inter",sans-serif;
+    font-weight: 700;
+    color: var(--green);
+    font-size: 20px;
+    letter-spacing:-.01em;
+    transition: color .2s ease;
+}
+
+.logo a:hover{
+    color: var(--green-dark);
+}
+
+.logo span{
+    font-size: 26px;
+    font-weight: 900;
+    display:inline-block;
+    transition: transform .25s ease;
+}
+
+.logo a:hover span{
+    transform: translateX(-4px);
+}
+
+@media (min-width: 769px){
+    .navbar{
+        padding: 15px 30px;
+    }
+    .logo a{
+        font-size: 23px;
+    }
+    .logo span{
+        font-size: 32px;
+    }
+}

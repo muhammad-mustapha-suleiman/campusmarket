@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join Campus Market</title>
+    <link rel="stylesheet" href="assets/css/auth.css">
+</head>
+<body>
+    <main class="auth-container">
+
+        <section class="auth-card">
+            <div class="brand">
+                <div class="">
+                    <img src="assets/images/image.png" class="brand-icon">
+                </div>
+                <h1> Campus Market </h1>
+                <h2> Buy • Sell • Connect </h2>
+                <p> Join your campus marketplace. </p>
+            </div>
+
+            <div id="toast"></div>
+            <form id="registerForm">
+                <div class="form-group">
+                    <label for="name"> Full Name </label>
+                    <input type="text" id="name" name="name" placeholder="Enter your full name">
+                </div>
+
+                <div class="form-group">
+                    <label for="email"> Email Address </label>
+                    <input type="" id="email" name="email" placeholder="Enter your email">
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone"> WhatsApp Number </label>
+                    <input type="tel" id="phone" name="phone" placeholder="2348012345678">
+                </div>
+                
+                <div class="form-group">
+                    <label for="campus"> Campus </label>
+                    <select id="campus" name="campus">
+                        <option value=""> Select Campus </option>
+                        <option value="ABU"> Ahmadu Bello University (ABU) </option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password"> Password </label>
+                    <input type="password" id="password" name="password" placeholder="Create a secure password">
+                    <div id="passwordRules" class="password-rules">
+                        <p id="lengthRule"> ○ At least 8 characters </p>
+                        <p id="upperRule"> ○ One uppercase letter </p>
+                        <p id="lowerRule"> ○ One lowercase letter </p>
+                        <p id="numberRule"> ○ One number </p>
+                        <p id="specialRule"> ○ One special character </p>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="confirmPassword"> Confirm Password </label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Re-enter your password">
+                    <small id="passwordMatch"></small>
+                </div>
+                <button type="submit" id="registerBtn"> Join Campus Market </button>
+            </form>
+            
+            <p class="auth-footer"> Already have an account? <a href="login.html"> Sign In </a> </p>
+        </section>
+    </main>
+    <script src="assets/js/register.js"></script>
+    <script src="assets/js/pwa.js"></script>
+</body>
+</html>

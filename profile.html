@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Listings</title>
+    <link rel="stylesheet" href="assets/css/profile.css">
+    <link rel="stylesheet" href="assets/css/delete.css">
+    <link rel="stylesheet" href="assets/css/navbar.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="left">
+            <div class="logo"><a href="index.html"><span> < </span> My listings</a></div>
+        </div>
+    </header>
+
+    <div id="toast"></div>
+
+    <div id="deleteModal" class="modal-overlay">
+        <div class="modal">
+            <div class="modal-icon">
+                D
+            </div>
+
+            <h2>Delete Listing?</h2>
+            <p>This action cannot be undone</p>
+
+            <div class="modal-buttons">
+                <button id="cancelDelete" class="cancel-btn">Cancel</button>
+                <button id="confirmDelete" class="delete-btn">Delete</button>
+            </div>
+        </div>
+    </div>
+    <div id="myListingsContainer"></div>
+
+    <script src="assets/js/profile.js"></script>
+    <script src="assets/js/pwa.js"></script>
+</body>
+</html>
