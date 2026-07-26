@@ -85,7 +85,7 @@ listingForm.addEventListener("submit", async(event)=>{
         const data = await response.json();
         if(data.success){
             showToast(data.message);
-            window.location.href = "index.html";
+            window.location.href = "marketplace.html";
         }
 
     } catch (error) {
