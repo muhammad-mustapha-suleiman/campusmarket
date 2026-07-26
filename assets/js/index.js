@@ -1,100 +1,109 @@
-const listingsContainer = document.getElementById("listingsContainer");
-const searchInput = document.getElementById("searchInput");
-const filterButtons = document.querySelectorAll(".filter-btn");
-const BASE_URL = "https://campusmarketserver.onrender.com";
-let searchKeyword = "";
-let selectedCategory = "";
-let allListings = [];
+(() => {
+    "use strict";
 
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-const fetchListings = async()=>{
-    listingsContainer.innerHTML = `
-        <div class="loading">
-            <div class="spinner"><?div>
-            <p> Loading listings </p>
-        </div>
-    `;
-    try {
-        const response = await fetch(`${BASE_URL}/api/listings/`);
-        const data = await response.json();
-        allListings = data.data;
-        renderListings(allListings);
+    /* ========== Footer year ========== */
+    const yearEl = document.getElementById("year");
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-    } catch (error) {
-        console.log(error);
-    }
-}
+    /* ========== Sticky nav shadow on scroll ========== */
+    const nav = document.getElementById("siteNav");
+    const onScroll = () => {
+        if (!nav) return;
+        nav.classList.toggle("scrolled", window.scrollY > 8);
+    };
+    document.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
 
-const renderListings = (listings)=>{
-    listingsContainer.innerHTML = "";
-    listings.forEach((listing) => {
-        const card = document.createElement("div");
-        card.classList.add("listing-card");
-
-         card.innerHTML = `
-            <image src="${listing.image_url}" class="card-images"
-            onerror="this.src='images/Placeholder.jpg'">
-            <h3>${listing.title}</h3>
-            <summary class="listing-content">Description: ${listing.description}</summary>
-            <p class="price" >Price: &#8358;${listing.price}</p>
-            <p class="category" >Category: ${listing.category}</p>
-            <button onclick="chatSeller(${listing.seller_phone})">Chat Seller</button>
-            `;
-            listingsContainer.appendChild(card);
-    });
-
-    if(listings.length === 0){
-        listingsContainer.innerHTML = `
-            <div class="empty-state">
-                <h2> No listings found </h2>
-                <p> Try another search or create a listing </p>
-            </div>
-        `;
-        return;
-    }
-}
-//
-const filterListings = ()=>{
-    const filteredListings = allListings.filter((listing)=>{
-        const matchesSearch = 
-        searchKeyword === "" ||
-        listing.title.toLowerCase().includes(searchKeyword) ||
-        listing.description.toLowerCase().includes(searchKeyword) ||
-        listing.category.toLowerCase().includes(searchKeyword);
-
-        const matchesCategory = selectedCategory === "" || listing.category.toLowerCase() === selectedCategory.toLowerCase();
-
-        return(
-            matchesSearch && matchesCategory
-        );
-    });
-
-    renderListings(filteredListings);
-}
-//search
-searchInput.addEventListener("input", ()=>{
-    searchKeyword = searchInput.value.trim().toLowerCase();
-    listingsContainer.innerHTML = "";
-    filterListings();
-});
-
-//filter
-filterButtons.forEach((button)=>{
-    button.addEventListener("click", ()=>{
-        filterButtons.forEach((btn)=>{
-            btn.classList.remove("active");
-            button.classList.add("active");
+    /* ========== Mobile nav toggle ========== */
+    const navToggle = document.getElementById("navToggle");
+    const navLinks = document.getElementById("navLinks");
+    if (navToggle && navLinks) {
+        navToggle.addEventListener("click", () => {
+            const isOpen = navLinks.classList.toggle("mobile-open");
+            navToggle.setAttribute("aria-expanded", String(isOpen));
+            navToggle.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
         });
-        selectedCategory = button.dataset.category;
-        listingsContainer.innerHTML = "";
-    filterListings();
+
+        navLinks.querySelectorAll("a").forEach((link) => {
+            link.addEventListener("click", () => {
+                navLinks.classList.remove("mobile-open");
+                navToggle.setAttribute("aria-expanded", "false");
+                navToggle.setAttribute("aria-label", "Open menu");
+            });
+        });
+    }
+
+    /* ========== Scroll reveal (Intersection Observer) ========== */
+    const revealEls = document.querySelectorAll("[data-reveal]");
+    if (prefersReducedMotion || !("IntersectionObserver" in window)) {
+        revealEls.forEach((el) => el.classList.add("is-visible"));
+    } else {
+        const revealObserver = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("is-visible");
+                        revealObserver.unobserve(entry.target);
+                    }
+                });
+            },
+            { threshold: 0.15, rootMargin: "0px 0px -40px 0px" }
+        );
+        revealEls.forEach((el) => revealObserver.observe(el));
+    }
+
+    /* ========== Animated stat counters ========== */
+    const counters = document.querySelectorAll(".stat-number[data-count]");
+    const animateCounter = (el) => {
+        const target = parseInt(el.dataset.count, 10) || 0;
+        if (prefersReducedMotion) {
+            el.textContent = target.toLocaleString();
+            return;
+        }
+        const duration = 1400;
+        const start = performance.now();
+        const step = (now) => {
+            const progress = Math.min((now - start) / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            el.textContent = Math.floor(eased * target).toLocaleString();
+            if (progress < 1) requestAnimationFrame(step);
+            else el.textContent = target.toLocaleString();
+        };
+        requestAnimationFrame(step);
+    };
+
+    if (counters.length && "IntersectionObserver" in window) {
+        const counterObserver = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        animateCounter(entry.target);
+                        counterObserver.unobserve(entry.target);
+                    }
+                });
+            },
+            { threshold: 0.5 }
+        );
+        counters.forEach((el) => counterObserver.observe(el));
+    } else {
+        counters.forEach(animateCounter);
+    }
+
+    /* ========== Button ripple ========== */
+    document.querySelectorAll(".btn").forEach((btn) => {
+        btn.addEventListener("click", function (e) {
+            if (prefersReducedMotion) return;
+            const rect = this.getBoundingClientRect();
+            const ripple = document.createElement("span");
+            const size = Math.max(rect.width, rect.height);
+            ripple.className = "ripple";
+            ripple.style.width = ripple.style.height = `${size}px`;
+            ripple.style.left = `${e.clientX - rect.left - size / 2}px`;
+            ripple.style.top = `${e.clientY - rect.top - size / 2}px`;
+            this.appendChild(ripple);
+            setTimeout(() => ripple.remove(), 600);
+        });
     });
-});
-
-
-const chatSeller = (phone)=>{
-    window.location.href=`https://wa.me/${phone}`;
-}
-
-fetchListings();
-logOut();
+})();

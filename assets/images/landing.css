@@ -479,18 +479,18 @@ ul,ol{ list-style:none; margin:0; padding:0; }
     padding:12px;
     box-shadow:var(--shadow-lg);
     border:1px solid var(--border);
-    max-width:320px;
+    max-width:300px;
     width:100%;
+    transition:transform .35s var(--ease);
 }
-
 .shot-frame img{
     width:100%;
-    height:auto;
-    display:block;
-    object-fit:contain;
+    aspect-ratio:9/19.5;
+    object-fit:cover;
+    object-position:center top;
     border-radius:calc(var(--radius-lg) - 10px);
+    background:#f3f4f6;
 }
-
 .feature-shot:hover .shot-frame{ transform:translateY(-6px) rotate(-.4deg); }
 
 .feature-copy h2{ font-size:clamp(1.6rem,5vw,2.1rem); }

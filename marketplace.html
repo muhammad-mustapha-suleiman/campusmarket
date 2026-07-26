@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Market</title>
+    <link rel="icon" href="icons/icon-512.png">
+    <link rel="stylesheet" href="assets/css/marketplace.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#00B074">
+</head>
+<body>
+    <header class="navbar">
+        <div class="left">
+            <div class="logo"><img src="assets/images/image.png" alt="" class="logo-mark">Campus Market</div>
+        </div>
+
+        <div class="center">
+            <input id="searchInput" placeholder ="Search listings...."/>
+        </div>
+
+        <div class="right nav">
+            <a href="marketplace.html">Home</a>
+            <a href="sell.html">Sell</a>
+            <a href="profile.html">My Listings</a>
+            <button id="logout">logout</button>
+        </div>
+    </header>
+
+    <div class="filters">
+        <button class="filter-btn" data-category="">All Categories</button>
+        <button class="filter-btn" data-category="electronics">Electronics</button>
+        <button class="filter-btn" data-category="books">Books</button>
+        <button class="filter-btn" data-category="phones">Phones</button>
+        <button class="filter-btn" data-category="laptops">Laptops</button>
+        <button class="filter-btn" data-category="gadgets">Gadgets</button>
+        <button class="filter-btn" data-category="fashion">Fashion</button>
+        <button class="filter-btn" data-category="bags">Bags</button>
+        <button class="filter-btn" data-category="shoes">Shoes</button>
+        <button class="filter-btn" data-category="costmetics">Costmetics</button>
+        <button class="filter-btn" data-category="jewelries">Jewelries</button>
+        <button class="filter-btn" data-category="clothing">Clothing</button>
+        <button class="filter-btn" data-category="food">Food</button>
+        <button class="filter-btn" data-category="others">Others</button>
+    </div>
+
+
+    <div id="listingsContainer">
+
+    </div>
+
+    <script src="assets/js/auth.js"></script>
+    <script src="assets/js/marketplace.js"></script>
+    <script src="assets/js/pwa.js"></script>
+</body>
+</html>

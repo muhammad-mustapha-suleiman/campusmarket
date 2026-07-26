@@ -6,10 +6,12 @@ const toast = document.getElementById("toast");
 const BASE_URL = "https://campusmarketserver.onrender.com";
 let toastTimer;
 
-const showToast = (message)=>{
+const showToast = (message, type = "error")=>{
     clearTimeout(toastTimer);
 
     toast.textContent = message;
+    toast.classList.remove("toast-success", "toast-error");
+    toast.classList.add(type === "success" ? "toast-success" : "toast-error");
     toast.classList.add("show");
 
     toastTimer = setTimeout(()=>{
@@ -50,9 +52,9 @@ loginForm.addEventListener("submit",async (e) => {
         const data = await response.json();
         if (response.status === 200) {
             localStorage.setItem("token", data.token);
-            showToast("✅ Login Successful! Redirecting...");
+            showToast("✅ Login Successful! Redirecting...", "success");
             loginBtn.textContent = "Success";
-            setTimeout(() => {window.location.href ="index.html";}, 800);
+            setTimeout(() => {window.location.href ="marketplace.html";}, 800);
         } else {
             showToast(data.message || "Invalid email or password.")
             loginBtn.disabled = false;

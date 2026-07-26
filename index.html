@@ -1,56 +1,298 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Campus Market</title>
-    <link rel="icon" href="icons/icon-512.png">
-    <link rel="stylesheet" href="assets/css/index.css">
-    <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#00B074">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Campus Market — The Marketplace Built for Your Campus</title>
+<meta name="description" content="Buy and sell anything with fellow students. Campus Market is the trusted, student-only marketplace — list in minutes, chat sellers on WhatsApp, and shop your campus.">
+<meta name="theme-color" content="#16A34A">
+<link rel="icon" href="icons/icon-512.png">
+<link rel="canonical" href="https://marketoncampus.netlify.app/">
+<link rel="icon" href="assets/images/logo.jpg">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Campus Market">
+<meta property="og:title" content="Campus Market — The Marketplace Built for Your Campus">
+<meta property="og:description" content="Buy and sell anything with fellow students. Fast. Easy. Trusted.">
+<meta property="og:image" content="assets/images/hero.jpg">
+<meta property="og:url" content="https://marketoncampus.netlify.app/">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Campus Market — The Marketplace Built for Your Campus">
+<meta name="twitter:description" content="Buy and sell anything with fellow students. Fast. Easy. Trusted.">
+<meta name="twitter:image" content="assets/images/hero.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="assets/css/index.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Campus Market",
+  "description": "A student-only marketplace for buying and selling on campus.",
+  "url": "https://marketoncampus.netlify.app/",
+  "logo": "assets/images/logo.jpg"
+}
+</script>
 </head>
 <body>
-    <header class="navbar">
-        <div class="left">
-            <div class="logo"><img src="assets/images/image.png" alt="" class="logo-mark">Campus Market</div>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ===== NAV ===== -->
+<header class="site-nav" id="siteNav">
+    <div class="nav-inner">
+        <a href="#top" class="nav-brand">
+            <img src="assets/images/logo.jpg" alt="Campus Market logo" class="nav-logo">
+            <span>Campus Market</span>
+        </a>
+
+        <nav class="nav-links" id="navLinks" aria-label="Primary">
+            <a href="#how-it-works">How it works</a>
+            <a href="#home-feature">Browse</a>
+            <a href="#sell-feature">Sell</a>
+            <a href="#listings-feature">Manage listings</a>
+        </nav>
+
+        <div class="nav-cta">
+            <a href="login.html" class="btn btn-ghost">Sign in</a>
+            <a href="register.html" class="btn btn-primary">Join free</a>
         </div>
 
-        <div class="center">
-            <input id="searchInput" placeholder ="Search listings...."/>
+        <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</header>
+
+<main id="main">
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="top">
+    <div class="hero-inner">
+        <div class="hero-copy" data-reveal>
+            <p class="eyebrow">Built by students, for students</p>
+            <h1>The marketplace<br>built for <span>your campus.</span></h1>
+            <p class="hero-sub">Buy and sell anything with fellow students &mdash; textbooks, gadgets, fashion, even akara. Fast. Easy. Trusted.</p>
+
+            <div class="hero-actions">
+                <a href="register.html" class="btn btn-primary btn-lg">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 2L4 6v14a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V6l-2-4H6z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M4 6h16M9 10a3 3 0 0 0 6 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                    Browse listings
+                </a>
+                <a href="sell.html" class="btn btn-outline btn-lg">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20.6 3.4a2 2 0 0 0-2.8 0L6 15.2V18h2.8L20.6 6.2a2 2 0 0 0 0-2.8z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+                    Start selling
+                </a>
+            </div>
+
+            <ul class="trust-badges">
+                <li>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2l7 3v6c0 5-3.4 8.7-7 10-3.6-1.3-7-5-7-10V5l7-3z" stroke="currentColor" stroke-width="1.8"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <span>Verified student accounts</span>
+                </li>
+                <li>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 12a8 8 0 1 1-3.2-6.4L20 4v4.4L16.4 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="1.6" fill="currentColor"/></svg>
+                    <span>Chat sellers on WhatsApp</span>
+                </li>
+                <li>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="2.5" stroke="currentColor" stroke-width="1.8"/><path d="M11 19h2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                    <span>Install &amp; shop on the go</span>
+                </li>
+            </ul>
         </div>
 
-        <div class="right nav">
-            <a href="index.html">Home</a>
-            <a href="sell.html">Sell</a>
-            <a href="profile.html">My Listings</a>
-            <button id="logout">logout</button>
+        <div class="hero-visual" data-reveal>
+            <img src="assets/images/hero.jpg" alt="Campus Market app shown on a phone, surrounded by real listings for a laptop, headphones, a Redmi tablet, a calculus textbook, Nike Air Force 1 sneakers and akara, on a student's desk" width="1536" height="1024" loading="eager" fetchpriority="high">
         </div>
-    </header>
-
-    <div class="filters">
-        <button class="filter-btn" data-category="">All Categories</button>
-        <button class="filter-btn" data-category="electronics">Electronics</button>
-        <button class="filter-btn" data-category="books">Books</button>
-        <button class="filter-btn" data-category="phones">Phones</button>
-        <button class="filter-btn" data-category="laptops">Laptops</button>
-        <button class="filter-btn" data-category="gadgets">Gadgets</button>
-        <button class="filter-btn" data-category="fashion">Fashion</button>
-        <button class="filter-btn" data-category="bags">Bags</button>
-        <button class="filter-btn" data-category="shoes">Shoes</button>
-        <button class="filter-btn" data-category="costmetics">Costmetics</button>
-        <button class="filter-btn" data-category="jewelries">Jewelries</button>
-        <button class="filter-btn" data-category="clothing">Clothing</button>
-        <button class="filter-btn" data-category="food">Food</button>
-        <button class="filter-btn" data-category="others">Others</button>
     </div>
 
-
-    <div id="listingsContainer">
-
+    <div class="hero-scroll-cue" aria-hidden="true">
+        <span></span>
     </div>
+</section>
 
-    <script src="assets/js/auth.js"></script>
-    <script src="assets/js/index.js"></script>
-    <script src="assets/js/pwa.js"></script>
+<!-- ===== STATS ===== -->
+<section class="stats" aria-label="Campus Market at a glance">
+    <div class="stats-inner">
+        <div class="stat" data-reveal>
+            <span class="stat-number" data-count="2400">0</span><span class="stat-suffix">+</span>
+            <p>Verified students</p>
+        </div>
+        <div class="stat" data-reveal>
+            <span class="stat-number" data-count="6100">0</span><span class="stat-suffix">+</span>
+            <p>Items listed</p>
+        </div>
+        <div class="stat" data-reveal>
+            <span class="stat-number" data-count="13">0</span>
+            <p>Categories</p>
+        </div>
+        <div class="stat" data-reveal>
+            <span class="stat-number" data-count="1">0</span><span class="stat-suffix">-tap</span>
+            <p>WhatsApp checkout</p>
+        </div>
+    </div>
+</section>
+
+<!-- ===== HOW IT WORKS ===== -->
+<section class="section how-it-works" id="how-it-works">
+    <div class="section-inner">
+        <p class="eyebrow center">The flow</p>
+        <h2 class="center">From sign-up to sold, in five real screens</h2>
+        <p class="section-lead center">No mockups. This is the actual app your classmates are already using.</p>
+
+        <ol class="steps">
+            <li class="step" data-reveal>
+                <div class="step-shot"><img src="assets/images/screen-register.jpg" alt="Campus Market sign-up screen with fields for full name, email, WhatsApp number, campus and password" loading="lazy" width="576" height="1280"></div>
+                <div class="step-copy">
+                    <span class="step-num">01</span>
+                    <h3>Create your account</h3>
+                    <p>Sign up with your name, email and campus in under a minute &mdash; no ID scans, no waiting.</p>
+                </div>
+            </li>
+            <li class="step" data-reveal>
+                <div class="step-shot"><img src="assets/images/screen-login.jpg" alt="Campus Market sign-in screen with email and password fields" loading="lazy" width="576" height="1280"></div>
+                <div class="step-copy">
+                    <span class="step-num">02</span>
+                    <h3>Sign in</h3>
+                    <p>Jump back in any time from your phone or laptop. Your listings and chats are right where you left them.</p>
+                </div>
+            </li>
+            <li class="step" data-reveal>
+                <div class="step-shot"><img src="assets/images/screen-home.jpg" alt="Campus Market home feed with search bar, category filters and a laptop listing with a Chat Seller button" loading="lazy" width="587" height="1280"></div>
+                <div class="step-copy">
+                    <span class="step-num">03</span>
+                    <h3>Browse &amp; chat sellers</h3>
+                    <p>Search, filter by category, and message a seller directly on WhatsApp with one tap. No middleman, no waiting on replies in-app.</p>
+                </div>
+            </li>
+            <li class="step" data-reveal>
+                <div class="step-shot"><img src="assets/images/screen-sell.jpg" alt="Campus Market sell screen with an image upload, title, description, price and category picker" loading="lazy" width="587" height="1280"></div>
+                <div class="step-copy">
+                    <span class="step-num">04</span>
+                    <h3>List what you're selling</h3>
+                    <p>Add a photo, title, price and category. Your listing is live to your whole campus in seconds.</p>
+                </div>
+            </li>
+            <li class="step" data-reveal>
+                <div class="step-shot"><img src="assets/images/screen-mylistings.jpg" alt="Campus Market My Listings screen showing an akara listing with Delete and Mark as Sold buttons" loading="lazy" width="587" height="1280"></div>
+                <div class="step-copy">
+                    <span class="step-num">05</span>
+                    <h3>Manage your listings</h3>
+                    <p>Mark items sold, delete stale posts, and keep your storefront tidy from one dashboard.</p>
+                </div>
+            </li>
+        </ol>
+    </div>
+</section>
+
+<!-- ===== HOME FEATURE ===== -->
+<section class="section feature" id="home-feature">
+    <div class="section-inner feature-grid">
+        <div class="feature-shot" data-reveal>
+            <div class="shot-frame shot-frame-lg"><img src="assets/images/screen-home.jpg" alt="Campus Market home screen showing search, category pills, and a listing card with price and Chat Seller button" loading="lazy" width="587" height="1280"></div>
+        </div>
+        <div class="feature-copy" data-reveal>
+            <p class="eyebrow">The home feed</p>
+            <h2>Everything your campus is selling, in one scroll</h2>
+            <p class="section-lead">This is the real home screen &mdash; not a concept. Search, filter, and reach a seller without ever leaving the app.</p>
+            <ul class="feature-list">
+                <li><strong>Instant search</strong> — find a listing by title, description or category as you type.</li>
+                <li><strong>13 categories</strong> — from electronics and books to fashion and food.</li>
+                <li><strong>One-tap WhatsApp</strong> — the Chat Seller button opens a pre-filled message, no app-switching guesswork.</li>
+            </ul>
+            <a href="marketplace.html" class="btn btn-primary">Browse the marketplace</a>
+        </div>
+    </div>
+</section>
+
+<!-- ===== SELL FEATURE ===== -->
+<section class="section feature feature-reverse" id="sell-feature">
+    <div class="section-inner feature-grid">
+        <div class="feature-shot" data-reveal>
+            <div class="shot-frame shot-frame-lg"><img src="assets/images/screen-sell.jpg" alt="Campus Market sell screen with a photo of a Redmi Pad 2, title 'Redmi pad 2', description, price field, and category selector" loading="lazy" width="587" height="1280"></div>
+        </div>
+        <div class="feature-copy" data-reveal>
+            <p class="eyebrow">Start selling</p>
+            <h2>List anything in under a minute</h2>
+            <p class="section-lead">A clean, guided form so your listing looks good the first time &mdash; no design skills required.</p>
+            <ul class="feature-list">
+                <li><strong>Upload a photo</strong> — drag in one clear image buyers can trust.</li>
+                <li><strong>Title &amp; description</strong> — say what it is and why it's worth buying.</li>
+                <li><strong>Price &amp; category</strong> — set your price and tag it so the right buyers find it.</li>
+                <li><strong>Publish</strong> — your listing goes live to your campus instantly.</li>
+            </ul>
+            <a href="sell.html" class="btn btn-primary">Start selling</a>
+        </div>
+    </div>
+</section>
+
+<!-- ===== LISTINGS FEATURE ===== -->
+<section class="section feature" id="listings-feature">
+    <div class="section-inner feature-grid">
+        <div class="feature-shot" data-reveal>
+            <div class="shot-frame shot-frame-lg"><img src="assets/images/screen-mylistings.jpg" alt="Campus Market My Listings dashboard with an akara listing showing Delete and Mark as Sold buttons, and a jollof rice listing below" loading="lazy" width="587" height="1280"></div>
+        </div>
+        <div class="feature-copy" data-reveal>
+            <p class="eyebrow">Your dashboard</p>
+            <h2>Stay on top of what you're selling</h2>
+            <p class="section-lead">A real seller dashboard, not an afterthought. Keep your storefront accurate so buyers trust what they see.</p>
+            <ul class="feature-list">
+                <li><strong>Mark as sold</strong> — close out a listing the moment it's gone, in one tap.</li>
+                <li><strong>Delete anytime</strong> — remove stale or duplicate posts instantly.</li>
+                <li><strong>Full visibility</strong> — every active and past listing, in one place.</li>
+            </ul>
+            <a href="profile.html" class="btn btn-primary">Manage your listings</a>
+        </div>
+    </div>
+</section>
+
+<!-- ===== FINAL CTA ===== -->
+<section class="cta-band" data-reveal>
+    <div class="cta-inner">
+        <h2>Your campus is already trading. Don't miss it.</h2>
+        <p>Join in under a minute &mdash; it's free, and it's built for students like you.</p>
+        <div class="hero-actions center">
+            <a href="register.html" class="btn btn-primary btn-lg">Join Campus Market</a>
+            <a href="login.html" class="btn btn-outline-invert btn-lg">Sign in</a>
+        </div>
+    </div>
+</section>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+    <div class="footer-inner">
+        <div class="footer-brand">
+            <img src="assets/images/logo.jpg" alt="" class="footer-logo" loading="lazy">
+            <div>
+                <p class="footer-name">Campus Market</p>
+                <p class="footer-tag">Built by students, for students.</p>
+            </div>
+        </div>
+
+        <nav class="footer-links" aria-label="Footer">
+            <div>
+                <h3>Product</h3>
+                <a href="marketplace.html">Browse listings</a>
+                <a href="sell.html">Sell something</a>
+                <a href="profile.html">My listings</a>
+            </div>
+            <div>
+                <h3>Account</h3>
+                <a href="register.html">Join Campus Market</a>
+                <a href="login.html">Sign in</a>
+            </div>
+        </nav>
+    </div>
+    <p class="footer-bottom">&copy; <span id="year"></span> Campus Market. Made for students, on campus.</p>
+</footer>
+
+<script src="assets/js/index.js"></script>
 </body>
 </html>

@@ -27,7 +27,7 @@ const fetchMyListings = async ()=>{
 
     myListingsContainer.innerHTML = `
         <div class="loading">
-            <div class="spinner"><?div>
+            <div class="spinner"></div>
             <p> Loading My listings </p>
         </div>
     `;

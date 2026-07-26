@@ -12,10 +12,12 @@ let phone = "";
 let toastTimer;
 const BASE_URL = "https://campusmarketserver.onrender.com";
 
-const showToast = (message)=>{
+const showToast = (message, type = "error")=>{
     clearTimeout(toastTimer);
 
     toast.textContent = message;
+    toast.classList.remove("toast-success", "toast-error");
+    toast.classList.add(type === "success" ? "toast-success" : "toast-error");
     toast.classList.add("show");
 
     toastTimer = setTimeout(()=>{
@@ -78,33 +80,31 @@ const validateEmail = ()=>{
     return true;
 }
 
+const phoneWrap = phoneInput.closest(".phone-input-wrap");
+
 const validatePhone = ()=>{
-    phone = phoneInput.value.trim();
+    let digits = phoneInput.value.trim();
 
-    if(!phone){
+    if(digits.startsWith("0")){
+        digits = digits.slice(1);
+    }
+
+    if(!digits){
         showToast("Phone number is required");
-        highlight(phoneInput);
+        highlight(phoneWrap);
         phoneInput.focus();
         return false;
     }
 
-    if(phone.startsWith("+234")){
-        phone = phone.slice(1);
-    } else if(phone.startsWith("0")){
-        phone = "234" + phone.slice(1);
-    } else if(/^\d{10}$/.test(phone)){
-        phone = "234" + phone;
-    }
-
-    
-    if(!/^234\d{10}$/.test(phone)){
+    if(!/^\d{10}$/.test(digits)){
         showToast("Enter a valid Nigerian WhatsApp Number");
-        highlight(phoneInput);
+        highlight(phoneWrap);
         phoneInput.focus();
         return false;
     }
 
-    clearHighlight(phoneInput);
+    phone = "234" + digits;
+    clearHighlight(phoneWrap);
     return true;
 }
 
@@ -214,17 +214,15 @@ emailInput.addEventListener("input", ()=>{
     }
 });
 phoneInput.addEventListener("input", ()=>{
-    let phone = phoneInput.value.trim();
-    if(phone.startsWith("+234")){
-        phone = phone.slice(1);
-    } else if(phone.startsWith("0")){
-        phone = "234" + phone.slice(1);
-    } else if(/^\d{10}$/.test(phone)){
-        phone = "234" + phone;
+    let digits = phoneInput.value.replace(/\D/g, "");
+    if(digits.startsWith("0")){
+        digits = digits.slice(1);
     }
-    
-    if(!/^234\d{10}$/.test(phone)){
-        clearHighlight(phoneInput);
+    digits = digits.slice(0, 10);
+    phoneInput.value = digits;
+
+    if(/^\d{10}$/.test(digits)){
+        clearHighlight(phoneWrap);
         hideToast();
     }
 });
@@ -256,7 +254,7 @@ registerForm.addEventListener("submit", async (e) => {
     const user = {
         name: nameInput.value.trim(),
         email: emailInput.value.trim(),
-        phone: phoneInput.value.trim(),
+        phone: phone,
         campus: campusInput.value,
         password: passwordInput.value
     };
@@ -273,7 +271,7 @@ registerForm.addEventListener("submit", async (e) => {
 
             const data = await response.json();
             if(response.status === 201){
-                showToast("✅ Account created successfully! Redirecting to Sign In...");
+                showToast("✅ Account created successfully! Redirecting to Sign In...", "success");
                 registerBtn.textContent = "Success";
                 setTimeout(() => { window.location.href = "login.html"; }, 1000);
             } else {
