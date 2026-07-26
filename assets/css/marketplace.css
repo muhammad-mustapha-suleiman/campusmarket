@@ -361,6 +361,15 @@ button:active{
     font-size: 15px;
 }
 
+.empty-state a{
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--green);
+    border-bottom:1.5px solid transparent;
+    transition:border-color .2s ease;
+}
+
 .loading{
     grid-column: 1 / -1;
     text-align: center;

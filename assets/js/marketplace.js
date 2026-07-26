@@ -51,7 +51,7 @@ const renderListings = (listings)=>{
         listingsContainer.innerHTML = `
             <div class="empty-state">
                 <h2> No listings found </h2>
-                <p> Try another search or create a listing </p>
+                <p> Try another search or <a href="sell.html">create a listing</a></p>
             </div>
         `;
         return;
