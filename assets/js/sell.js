@@ -1,7 +1,7 @@
 const listingForm = document.getElementById("listingForm");
 const categoryButtons = document.querySelectorAll(".category-btn" );
 const uploadBox = document.querySelector(".upload-box");
-const sellBtn = document.getElementById("sell-btn");
+const sellBtn = document.getElementById("sellBtn");
 const toast = document.getElementById("toast");
 const BASE_URL = "https://campusmarketserver.onrender.com";
 let category = "";
@@ -46,7 +46,7 @@ image.addEventListener("change", () => {
 
 listingForm.addEventListener("submit", async(event)=>{
     event.preventDefault();
-    sellBtn.disabled = true;
+    sellBtn.ariaDisabled = true;
     try {
         const token = localStorage.getItem("token");
         const title = document.getElementById("title").value;
@@ -59,7 +59,6 @@ listingForm.addEventListener("submit", async(event)=>{
             return;
         }
         
-        su
         const formData = new FormData();
 
         formData.append("title", title);
