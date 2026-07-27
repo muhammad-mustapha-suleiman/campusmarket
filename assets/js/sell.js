@@ -6,7 +6,7 @@ const toast = document.getElementById("toast");
 const BASE_URL = "https://campusmarketserver.onrender.com";
 let category = "";
 let toastTimer;
-
+sellBtn.disabled = false;
 const showToast = (message)=>{
     clearTimeout(toastTimer);
 
@@ -46,7 +46,10 @@ image.addEventListener("change", () => {
 
 listingForm.addEventListener("submit", async(event)=>{
     event.preventDefault();
-    sellBtn.ariaDisabled = true;
+
+    sellBtn.disabled = true;
+    sellBtn.textContent = "Creating your listing";
+
     try {
         const token = localStorage.getItem("token");
         const title = document.getElementById("title").value;
@@ -91,5 +94,7 @@ listingForm.addEventListener("submit", async(event)=>{
     } catch (error) {
         console.log(error);
         showToast(error.message);
+        sellBtn.disabled = false;
+        sellBtn.textContent = "Creating listing"
     }
 });

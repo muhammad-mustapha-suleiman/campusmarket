@@ -161,6 +161,12 @@ textarea{
     box-shadow:0 12px 22px rgba(22,163,74,.3);
 }
 
+.create-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
 .create-btn:active{
     transform: translateY(0) scale(.98);
 }
