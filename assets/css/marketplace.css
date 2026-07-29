@@ -472,13 +472,12 @@ button:active{
     width:100%;
     max-width:420px;
 
+    max-height:85vh;
+
+    overflow-y:auto;
+
     border-radius:16px;
-
     padding:24px;
-
-    box-shadow:0 15px 40px rgba(0,0,0,.2);
-
-    animation:popup .25s ease;
 }
 
 .disclaimer-box h2{
@@ -560,5 +559,16 @@ button:active{
 
 .community-link:hover{
     text-decoration:underline;
+}
+
+@media (max-width:600px){
+
+    .disclaimer-box{
+
+        padding:18px;
+        max-height:90vh;
+
+    }
+
 }
 
