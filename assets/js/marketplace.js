@@ -3,8 +3,30 @@ const searchInput = document.getElementById("searchInput");
 const filterButtons = document.querySelectorAll(".filter-btn");
 const BASE_URL = "https://campusmarketserver.onrender.com";
 let searchKeyword = "";
+const disclaimerModal = document.getElementById("disclaimer-modal");
+const continueBtn = document.getElementById("continue-btn");
 let selectedCategory = "";
 let allListings = [];
+
+window.addEventListener("DOMContentLoaded",()=>{
+
+    const showDisclaimer = localStorage.getItem("showDisclaimer");
+
+    if(showDisclaimer==="true"){
+
+        disclaimerModal.classList.add("show");
+
+        localStorage.removeItem("showDisclaimer");
+
+    }
+
+});
+
+continueBtn.addEventListener("click",()=>{
+
+    disclaimerModal.classList.remove("show");
+
+});
 
 
 const fetchListings = async()=>{
@@ -34,7 +56,7 @@ const renderListings = (listings)=>{
          card.innerHTML = `
             <a href="${listing.image_url}" target="_self" class="image-link">
                 <img src="${listing.image_url}" class="card-images"
-                onerror="this.src='images/Placeholder.jpg'">
+                onerror="this.src='images/Placeholder.png'">
             </a>
             <h3>${listing.title}</h3>
             <summary class="listing-content">Description: ${listing.description}</summary>

@@ -54,7 +54,10 @@ loginForm.addEventListener("submit",async (e) => {
             localStorage.setItem("token", data.token);
             showToast("✅ Login Successful! Redirecting...", "success");
             loginBtn.textContent = "Success";
-            setTimeout(() => {window.location.href ="marketplace.html";}, 800);
+            setTimeout(() => {
+                localStorage.setItem("showDisclaimer","true");
+                window.location.href ="marketplace.html";
+            }, 800);
         } else {
             showToast(data.message || "Invalid email or password.")
             loginBtn.disabled = false;
