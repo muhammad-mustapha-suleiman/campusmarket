@@ -470,9 +470,9 @@ button:active{
 .disclaimer-box{
     background:#fff;
     width:100%;
-    max-width:400px;
+    max-width:430px;
 
-    max-height:80vh;
+    max-height:85vh;
     border-radius:16px;
     padding:24px;
 }
