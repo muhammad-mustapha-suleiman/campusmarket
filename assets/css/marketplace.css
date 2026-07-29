@@ -471,7 +471,7 @@ button:active{
     background: #fff;
     width: 100%;
     max-width: 430px;
-
+    font-size: 14px;
     max-height: 85vh;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
@@ -484,12 +484,14 @@ button:active{
 
 .disclaimer-box h2{
     color: var(--green);
+    font-size:20px;
     margin-bottom: 10px;
 }
 
 .disclaimer-box p{
     margin-bottom: 15px;
-    line-height: 1.5;
+    font-size: 14px;
+    line-height: 1.4;
 }
 
 .disclaimer-box ul{
@@ -498,7 +500,8 @@ button:active{
 }
 
 .disclaimer-box li{
-    margin-bottom: 10px;
+    margin-bottom: 8px;
+    font-size: 13px;
     line-height: 1.4;
 }
 
@@ -510,7 +513,7 @@ button:active{
     padding: 14px;
     border-radius: 8px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 600;
 }
 
@@ -547,8 +550,8 @@ button:active{
 .community-link{
     display: block;
     text-align: center;
-    margin: 15px 0 20px;
-
+    margin: 13px 0 18px;
+    font-size: 13px;
     color: var(--green);
     text-decoration: none;
     font-weight: 600;
